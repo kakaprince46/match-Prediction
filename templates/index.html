@@ -1,40 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Predictor</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
-    <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md">
-        <h1 class="text-3xl font-bold text-center mb-1 text-yellow-400">Football Match Predictor</h1>
-        <h2 class="text-xl font-medium text-center mb-6 text-gray-300">Premier League 2025</h2>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-blue-300">
+        <!-- Title -->
+        <h1
+            class="text-3xl font-bold text-center mb-1 bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 text-transparent bg-clip-text">
+            Football Match Predictor
+        </h1>
+        <h2 class="text-lg font-medium text-center mb-6 text-gray-700">Premier League 2025</h2>
+
+        <!-- Form -->
         <form action="/predict" method="post" class="space-y-4">
+            <!-- Home Team -->
             <div>
-                <label for="home_team" class="block text-sm font-medium text-gray-300">Home Team:</label>
+                <label for="home_team" class="block text-sm font-medium text-blue-800">Home Team:</label>
                 <select name="home_team" id="home_team"
-                    class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm text-white">
+                    class="mt-1 block w-full px-3 py-2 bg-blue-100 border border-blue-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm text-blue-900">
                     {% for team in teams %}
                     <option value="{{ team }}">{{ team }}</option>
                     {% endfor %}
                 </select>
             </div>
+
+            <!-- Away Team -->
             <div>
-                <label for="away_team" class="block text-sm font-medium text-gray-300">Away Team:</label>
+                <label for="away_team" class="block text-sm font-medium text-blue-800">Away Team:</label>
                 <select name="away_team" id="away_team"
-                    class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm text-white">
+                    class="mt-1 block w-full px-3 py-2 bg-blue-100 border border-blue-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm text-blue-900">
                     {% for team in teams %}
                     <option value="{{ team }}">{{ team }}</option>
                     {% endfor %}
                 </select>
             </div>
+
+            <!-- Submit Button -->
             <button type="submit"
-                class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150 ease-in-out">
+                class="w-full py-2 px-4 rounded-md shadow-md text-sm font-semibold text-black bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition">
                 Predict Match
             </button>
         </form>
     </div>
+
 </body>
 
 </html>
